@@ -2,7 +2,10 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 // Axios 인스턴스 생성
 const api = axios.create({
-    baseURL: 'http://api.example.com', // API의 기본 URL 설정
+    baseURL: 'https://gatsby0391.cafe24api.com/api/v2', // API의 기본 URL 설정
+    headers: {
+        'X-Cafe24-Client-Id': 'hSHqhtapINNtoG2qli501C'
+    },
     timeout: 5000, // 요청이 타임아웃되는 시간 설정 (옵션)
 });
 
@@ -11,6 +14,7 @@ api.interceptors.request.use(
     (config: any) => {
         // 요청을 보내기 전에 필요한 작업 수행
         // 예: 헤더에 인증 토큰 추가 등
+
         return config;
     },
     (error: AxiosError) => {

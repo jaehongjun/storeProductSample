@@ -1,6 +1,15 @@
+import { useEffect } from 'react';
 import './input.css';
-
+import api from './utils/api';
 function App() {
+  useEffect(() => {
+    api.get('/products').then(data => {
+
+      console.log(data);
+
+    })
+  }, [])
+
   const products = [
     {
       id: 1,
